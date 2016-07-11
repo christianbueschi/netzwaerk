@@ -1,5 +1,6 @@
 /node_modules
 /wp-theme/node_modules
 /.DS_Store
+/wp-theme/.DS_Store
 
 /web/wp-config.php

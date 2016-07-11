@@ -837,7 +837,7 @@ h3.text,
 .copy-default,
 body {
   font-family: 'SuperGrotesk', Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   font-weight: normal;
   margin: 0;
@@ -845,8 +845,8 @@ body {
 @media (min-width: 33.0625em) {
   .copy-default,
   body {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 .copy-small,
