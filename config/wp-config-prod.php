@@ -1,71 +1,89 @@
 <?php
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://codex.wordpress.org/Editing_wp-config.php
+ *
+ * @package WordPress
+ */
 
-// Error Reporting
-error_reporting(E_ALL & ~E_DEPRECATED);
-//error_reporting(0);
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'netzwaerk');
 
-define('DOCUMENT_ROOT', realpath(__dir__ . '/../public'));
+/** MySQL database username */
+define('DB_USER', 'root');
 
-// Include Credentials (don't store them in VCS)
-require __dir__ . '/wp-credentials.php';
+/** MySQL database password */
+define('DB_PASSWORD', 'root');
 
-// Database, Charset
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8mb4');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define('AUTH_KEY',         'v=0KVkNiD|{6]C9NNn)c@xN9,#xa}vF_A%voErrO<k^JeM&KVg/Ycx>&YG(li*0I');
+define('SECURE_AUTH_KEY',  '[}eE8(%BM=L;$o@9|w#y#/bj_)^5ZI5Uq!-8Puopa$d~XzrP8QN?FC%+>j_.e.L$');
+define('LOGGED_IN_KEY',    '=?]fs:Xu>Z}/KhiZ<Z5`J/S^,s,R1LFb:?W%:zK/{S`1#vZz@@o,wDt?f=u43b(+');
+define('NONCE_KEY',        ',L*[ZxX@5Uda}Ek:B0*wqcYT9nLN/3u@HNRM,.{E{83M.]`M>|fhZ0:QaZw&_g#G');
+define('AUTH_SALT',        ';`iHNO2oQ8e$}wuzS2_Ixck}5p>Ukvty5XM00k{vaR.(M| i0_=QLV+$mR-OLsgI');
+define('SECURE_AUTH_SALT', ' u.~B} }G!~u`S8|$`>e% v^ZD=]|tQm[zUN8U4uM~UJKo>[ir@H<tX fqiL1KG/');
+define('LOGGED_IN_SALT',   '`5jzS7&<A!;>4S@K=/F%Ouu|XQ|eL(4JoC{Fy,p%]d8unXKvQpIV,ZZo:vX[<Fd.');
+define('NONCE_SALT',       '}lG$xGR~SBT}:T*X*)J|^v=gd*MU!aYEI=bWeYl8Ttl$Q&k$w6CEp2ry68uqT#v=');
+
+/**#@-*/
+
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */
 $table_prefix  = 'wp_';
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', 'utf8_general_ci');
 
-// Domain
-define('NX_SITE_HOST',     'tbd');
-define('WP_SITEURL',    'http://' . NX_SITE_HOST);
-define('WP_HOME',       WP_SITEURL);
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the Codex.
+ *
+ * @link https://codex.wordpress.org/Debugging_in_WordPress
+ */
+define('WP_DEBUG', true);
 
-// Cookie
-// define('COOKIE_DOMAIN', NX_SITE_HOST);
-// define('COOKIEPATH', '');
-// define('ADMIN_COOKIE_PATH', '/');
+/* That's all, stop editing! Happy blogging. */
 
-// Network
-define('WP_ALLOW_MULTISITE', true);
-define('MULTISITE', true);
-//define('MULTISITE', false);
-define('PATH_CURRENT_SITE', '/');
-define('SUBDOMAIN_INSTALL', false);
-
-// WordPress Paths
-define('WP_CONTENT_DIR', __DIR__ . '/../web/wp-content'); // no trailing slash
-define('WP_CONTENT_URL', WP_SITEURL . '/wp-content'); // no trailing slash
-define('WP_PLUGIN_DIR',  __DIR__ . '/../web/wp-content/plugins'); // no trailing slash
-define('WP_PLUGIN_URL',  WP_SITEURL . '/wp-content/plugins'); // no trailing slash
-define('PLUGINDIR', WP_PLUGIN_DIR); // For compability issues with plugins
-define('WPMU_PLUGIN_DIR',  __DIR__ . '/../web/wp-content/mu-plugins'); // no trailing slash
-define('WPMU_PLUGIN_URL',  WP_SITEURL . '/wp-content/mu-plugins'); // no trailing slash
-
-// Misc
-define('FORCE_SSL_LOGIN',    false);
-define('WP_POST_REVISIONS',  3);   // default: true
-define('AUTOSAVE_INTERVAL',  '300');  // default: 60 seconds.
-define('EMPTY_TRASH_DAYS',   14);  // default: 30 days
-define('DISALLOW_FILE_EDIT', true); // Disable theme and plugin editor
-define('WP_AUTO_UPDATE_CORE', 'minor'); // Minor is the default setting. We set it for transparency
-
-// Enable Cache
-define('WP_CACHE', false);
-
-// App Environment
-define('APP_ENV', 'prod'); // dev, qa, prod
-
-
-////// Debugging //////////////////////////////////////////////////////
-define('WP_DEBUG', false);
-define('WP_DEBUG_LOG', false);
-define('WP_DEBUG_DISPLAY', false);
-define('SAVEQUERIES', false);        // default: false
-define('SCRIPT_DEBUG', false);
-define('CONCATENATE_SCRIPTS', true); // default: true
-
-// Absolute path to the WordPress directory. */
+/** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', __dir__ . '/../public/');
+	define('ABSPATH', dirname(__FILE__) . '/');
 
-// Sets up WordPress vars and included files. */
+/** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
