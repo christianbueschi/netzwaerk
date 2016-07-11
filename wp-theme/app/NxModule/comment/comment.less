@@ -1,0 +1,43 @@
+/**
+ * module: comment
+ * creator: dmodalek
+ */
+.mod-comment {
+	padding-top: @spc;
+	position: relative;
+	margin-bottom: @spc;
+
+	.author-img-wrapper {
+		float: left;
+	}
+
+		.avatar {
+			width: 60px;
+			height: 60px;
+			margin-right: @spc;
+			border-radius: 100%;
+			vertical-align: middle;
+		}
+
+	.meta {
+		margin-bottom: @spc/2;
+	}
+
+		.comment-title {
+			&:extend(.title-min all);
+
+			display: inline-block;
+			margin-right: @spc/2;
+		}
+
+		.date {
+			&:extend(.copy-small all);
+			display: inline-block;
+			color: @color-meta;
+		}
+
+		.approval {
+			color: @color-link;
+		}
+}
+/* END module: comment */

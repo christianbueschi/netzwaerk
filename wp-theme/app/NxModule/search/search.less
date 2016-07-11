@@ -1,0 +1,74 @@
+/**
+ * module: search
+ * creator: dmodalek
+ */
+.mod-search {
+	max-height: 1px;
+	overflow: hidden;
+	transition: all 0.6s;
+	transform: translate3d(0,0,0);
+
+	.inner {
+		border-top: 1px solid @color-border;
+		border-bottom: 1px solid @color-border;
+	}
+
+	.search-form {
+		opacity: 0;
+		height: 46px;
+		position: relative;
+		transition: all 0.6s;
+		transition-delay: 0.2s;
+
+		@media @m-medium-up {
+			height: 58px;
+		}
+	}
+
+	&.active {
+		max-height: 100px;
+
+		.search-form {
+			opacity: 1;
+
+		}
+	}
+
+	.search-field {
+		&:extend(.title-sub all);
+		float: left;
+		height: 100%;
+		width: 100%;
+		border: none;
+		background-color: transparent;
+	}
+
+	.submit {
+		&:extend(.title-sub all);
+		position: absolute;
+		right: 0;
+
+		padding-left: @spc;
+		padding-right: @spc;
+		cursor: pointer;
+		display: block;
+		border: none;
+		height: 52px;
+		top: -1px;
+		background: @color-link;
+		@media @m-small {
+			.h-vh();
+		}
+
+		@media @m-medium-up {
+			height: 60px;
+		}
+
+		&:hover {
+			color: white;
+			background-color: @color-hover;
+		}
+	}
+
+}
+/* END module: search */

@@ -1,0 +1,13 @@
+{
+  "name": "terrificjs-extensions",
+  "homepage": "https://github.com/MarcDiethelm/terrificjs-extensions",
+  "_release": "608e4c2bdc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "608e4c2bdc00f6987e1d6905272d60c957d9b6dc"
+  },
+  "_source": "https://github.com/MarcDiethelm/terrificjs-extensions.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/MarcDiethelm/terrificjs-extensions.git"
+}

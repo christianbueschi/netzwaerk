@@ -1,0 +1,22 @@
+
+<? // check if the repeater field has rows of data
+if( have_rows('cta_items') ): ?>
+
+	<ul class="mod-cta__list g-layout-cta g-row">
+		
+
+ 		<? // loop through the rows of data
+    	while ( have_rows('cta_items') ) : the_row(); ?>
+
+    	<li class="mod-cta__item g-col">
+    		<a class="mod-cta__link" href="<? the_sub_field('cta_item_link') ?>">
+    			<img class="mod-cta__icon a-icon" src="<?= the_sub_field('cta_item_icon') ?>">
+    			<h3 class="mod-cta__title"><? the_sub_field('cta_item_title'); ?></h3>
+    		</a>
+    	</li>
+
+		<?
+    	endwhile; ?>
+    </ul>
+
+<? endif; ?>

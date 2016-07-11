@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////////////
+// BUTTONS
+
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	padding: @spc/2 @spc;
+	text-align: center;
+	border-radius: 5px;
+	background-color: rgba(red(@color-copy), green(@color-copy), blue(@color-copy),0.1);
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none !important;
+		background-color: rgba(red(@color-copy), green(@color-copy), blue(@color-copy),0.2);
+	}
+}

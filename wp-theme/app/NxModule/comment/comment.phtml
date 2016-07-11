@@ -1,0 +1,13 @@
+<header class="meta h-cf">
+	<!-- <div class="author-img-wrapper">
+		<//?= get_avatar($data->comment_author_email, 120 ); ?>
+	</div> -->
+
+	<h3 class="comment-title"><?= $data->comment_author ?></h3>
+	<time class="date" datetime="<?= $data->comment_date ?>"><?= $data->comment_date .' '. __('on', 'nxtheme') .' '. $data->comment_time?></time>
+	<?php if ($data->comment_approved == '0') : ?>
+		<small class="approval">— <?= __('Your comment is awaiting approval.', 'nxtheme') ?></small>
+	<?php endif; ?>
+</header>
+
+<p class="content"><?= $data->comment_content ?></p>

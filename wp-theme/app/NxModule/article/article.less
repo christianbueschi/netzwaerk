@@ -1,0 +1,158 @@
+/**
+ * module: content
+ * creator: cbueschi
+ */
+.mod-article {
+
+	.g-layout-article {
+		.grid-col-set-equal(@grid-cols/2);
+	}
+
+	.g-table {
+		display: block;
+		min-height: 100vh;
+
+		@media @m-large-up {
+			display: table-row;
+			height: 100vh;
+		}
+
+		.g-cell {
+			padding-right: @spc;
+
+			@media @m-large-up {
+				display: table-cell;
+				vertical-align: middle;
+				width: 50%;
+			}
+		}
+	}
+
+	.g-layout-gallery {
+		@media @m-small {
+			.grid-col-set-equal(@grid-cols/2);
+		}
+		@media @m-medium-up {
+			.grid-col-set-equal(@grid-cols/3);
+		}
+	}
+
+	&__article {
+		//height: 100vh;
+		min-height: 100vh;
+		padding-top: @spc;
+		overflow: hidden;
+
+		@media @m-large-up {
+			padding-top: 0;
+		}
+
+		&-inner {
+			&:extend(.box-centered);
+			&:extend(.box-content-page);
+
+			position: relative; // background relative
+			
+			//padding-top: @spc * 2;
+			//padding-bottom: @spc * 2;
+		}
+
+		&.m-develop {
+			background-color: @color-red;
+		}
+
+		&.m-network {
+			background-color: @color-cyan;
+		}
+
+		&.m-integrate {
+			background-color: @color-blue;
+		}
+	}
+
+	&__title {
+		margin-top: 0;
+		line-height: 10vw;
+		text-transform: uppercase;
+
+		@media @m-large-up {
+			line-height: 57px;
+		}
+
+		em {
+			font-style: normal;
+			text-transform: capitalize;
+			font-size: 15vw;
+			display: block;
+
+			@media @m-large-up {
+				font-size: 84px;
+			}
+		}
+
+		.m-develop & {
+			color: darken(@color-red, 30%);
+
+			em {
+				color: white;
+			}
+		}
+
+		.m-network & {
+			color: darken(@color-cyan, 30%);
+
+			em {
+				color: white;
+			}
+		}
+
+		.m-integrate & {
+			color: darken(@color-blue, 30%);
+
+			em {
+				color: white;
+			}
+		}
+	}
+
+	&__subtitle {
+		color: white;
+		text-transform: uppercase;
+	}
+
+	&__body {
+		color: white;
+		font-weight: 600;
+		padding-bottom: @spc;
+
+		.m-contact & {
+			color: black;
+		}
+	}
+
+	&__gallery {
+
+		&-item {
+
+		}
+
+		&-link {
+
+		}
+
+		&-image {
+
+		}
+	}
+
+	&__background {
+		position: absolute;
+    	top: calc(~"50% - 275px");
+    	width: 550px;
+    	left: -150px;
+    	opacity: 0.2;
+	}
+
+	
+}
+/* END module: content */

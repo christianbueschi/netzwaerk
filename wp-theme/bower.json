@@ -1,0 +1,23 @@
+{
+  "name": "advokatur-egger",
+  "version": "1.0.0",
+  "authors": [
+    "Christian Bueschi"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lawg": "https://github.com/MarcDiethelm/lawg.git#develop",
+    "terrificjs": "latest",
+    "terrificjs-extensions": "https://github.com/MarcDiethelm/terrificjs-extensions.git",
+    "enquire": "latest",
+    "matchMedia": "latest",
+    "spartan-grid": "4.0.2"
+  }
+}

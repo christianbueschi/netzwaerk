@@ -1,0 +1,13 @@
+{
+  "name": "lawg",
+  "homepage": "https://github.com/MarcDiethelm/lawg",
+  "_release": "9621b28006",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "9621b28006edca4c18162c8926477adacdfc1569"
+  },
+  "_source": "https://github.com/MarcDiethelm/lawg.git",
+  "_target": "develop",
+  "_originalSource": "https://github.com/MarcDiethelm/lawg.git"
+}

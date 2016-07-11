@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////
+// STYLES
+.stage-full-heighth {
+	height: 100vh;
+	min-height: 556px; // iPhone height
+	margin-bottom: -100px; // pull content up (according to header height)
+	overflow: hidden;
+
+	@media @m-medium-up {
+		min-height: 768px; // iPhone height
+	}
+
+	@media @m-large-up {
+		min-height: 800px;
+		//margin-bottom: -150px; // pull content up (according to header height)
+	}
+}

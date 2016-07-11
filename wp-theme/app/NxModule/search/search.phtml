@@ -1,0 +1,9 @@
+<div class="inner js-inner">
+	<div class="box-content page-centered">
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<label for="search" class="h-vh"><? _ex( 'Search', 'label', 'nxtheme' ); ?></label>
+			<input id="search" type="search" class="js-search-field search-field" placeholder="<?= esc_attr_x( 'Search', 'placeholder', 'nxtheme' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
+			<button type="submit" class="submit"><?= esc_attr_x( 'Search', 'submit button', 'nxtheme' ); ?></button>
+		</form>
+	</div>
+</div>

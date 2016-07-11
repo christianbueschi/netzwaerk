@@ -1,0 +1,158 @@
+////////////////////////////////////////////////////////////////////////////////
+// SETUP
+
+//
+// Layout
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	#type > .rendering('optimised');
+	font-size: 62.5%; // reset to 10px for linear rem usage
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: @color-bg-body;
+}
+
+body {
+	// set default font style and color for the page
+	&:extend(.copy-default);
+	overflow: hidden;
+	color: @color-copy;
+	background: @color-bg-body;
+
+	// mobile nav effects
+	transition: left .25s ease-in-out;
+	position: relative;
+	left: 0;
+	&.state-nav-open {
+		left: -80%;
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Grid
+
+@grid-config: @max-content-width, @grid-type, @grid-gutter, @gutter-type, @grid-cols;
+
+.g-no-gutter {
+	.grid-gutter(0);
+}
+
+.grid-bundle(@config: @grid-config);
+
+// Prevent collapsing of empty cols
+// - @Link http://css-tricks.com/make-sure-columns-dont-collapse-horizontally
+
+.g-col {
+	 min-height: 1px;
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Typography
+
+.title-page {
+	#type > #title > .style('default');
+	#type > #title > .size('page');
+	&.spaced {
+		&:extend(.title-page);
+		#type > #title > .spacing('page');
+	}
+}
+
+.title-default {
+	#type > #title > .style('default');
+	#type > #title > .size('default');
+	&.spaced {
+		&:extend(.title-default);
+		#type > #title > .spacing('default');
+	}
+}
+
+.title-sub {
+	#type > #title > .style('default');
+	#type > #title > .size('sub');
+	&.spaced {
+		&:extend(.title-sub);
+		#type > #title > .spacing('sub');
+	}
+}
+
+////////////////////////////////////////
+
+.copy-default {
+	#type > #copy > .style('default');
+	#type > #copy > .size('default');
+	margin: 0;
+}
+
+.copy-small {
+	#type > #copy > .style('default');
+	#type > #copy > .size('small');
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Tags
+
+small,
+.small {
+	&:extend(.copy-small all);
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid @color-border;
+	margin-top: @spc;
+	margin-bottom: @spc;
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Lists
+
+ul, ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Images
+
+img {
+	width: 100%;
+}
+
+////////////////////////////////////////////////////////////
+
+//
+// Links
+
+a {
+	#type > #link > .style('default');
+
+	&:hover {
+		#type > #link > .style('hover');
+	}
+}
+
+// links around blocks
+a.img,
+a.box {
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer; // IE 7
+	line-height: 0; // prevents space at bottom
+	border: none;
+}

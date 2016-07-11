@@ -1,0 +1,43 @@
+
+<? // check if the repeater field has rows of data
+if( have_rows('content_items') ): ?>
+
+        <? // loop through the rows of data
+        while ( have_rows('content_items') ) : the_row(); ?>
+
+            <article class="mod-article__article m-<? the_sub_field('content_item_modifier'); ?>" id="<? the_sub_field('content_item_anchor'); ?>">
+                <div class="mod-article__article-inner">
+                    <div class="g-layout-article g-table">
+                        <div class="g-cell g-col-left">
+                            <h1 class="mod-article__title"><? the_sub_field('content_item_title'); ?></h1>
+                        </div>
+                        <div class="g-cell g-col-right">
+                            <div class="mod-article__body">
+                            <span class="mod-article__subtitle"><? the_sub_field('content_item_subtitle'); ?></span>
+                                <? the_sub_field('content_item_body'); ?>
+                            </div>
+
+                            <? $images = get_sub_field('content_item_gallery');
+
+                            if( $images ): ?>
+                                <ul class="mod-article__gallery g-row g-layout-gallery">
+                                <?php foreach( $images as $image ):  ?>
+                                    <li class="mod-article__gallery-item g-col">
+                                        <a class="mod-article__gallery-link js-lightbox" rel="<? the_sub_field('content_item_modifier'); ?>" href="<?= $image['url']; ?>">
+                                            <img class="mod-article__gallery-image" src="<?= $image['sizes']['medium']; ?>" alt="<?= $image['alt']; ?>" />
+                                        </a>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+                    <img class="mod-article__background" src="<? the_sub_field('content_item_background_image'); ?>">
+                </div>
+            </article>
+
+        <?
+        endwhile; ?>
+
+<? endif; ?>

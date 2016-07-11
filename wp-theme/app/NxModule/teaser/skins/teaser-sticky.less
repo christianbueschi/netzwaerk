@@ -1,0 +1,54 @@
+/**
+ * module: teaser
+ * skin: sticky
+ * creator: dmodalek
+ */
+.skin-teaser-sticky {
+	&:extend(.page-centered all);
+
+	margin-bottom: @spc;
+
+	.image-wrapper {
+		padding: 0;
+		position: relative;
+		min-height: 240px;
+		background-size: cover;
+
+		@media @m-medium-up {
+			min-height: 300px;
+		}
+
+		@media @m-large-up {
+			min-height: 400px;
+		}
+	}
+
+		.teaser-title {
+			&:extend(.title-page all);
+		}
+
+		.teaser-link {
+			display: inline-block;
+		}
+
+		.overlay {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			background: linear-gradient(transparent, black);
+			min-height: 80%;
+		}
+
+			.content {
+				position: absolute;
+				bottom: 0;
+				padding: @spc;
+				color: white;
+
+				.date {
+					display: block;
+					margin-bottom: @spc / 2;
+				}
+			}
+}
+/* END module: teaser */

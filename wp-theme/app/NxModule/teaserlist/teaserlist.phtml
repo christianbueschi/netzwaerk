@@ -1,0 +1,24 @@
+<? if ($data->query->have_posts()) : ?>
+
+	<? if(!empty($data->title)) : ?>
+		<h2 class=".teaserlist-title"><?= $data->title ?></h2>
+	<? endif; ?>
+
+	<ul class="g-row g-layout-1">
+		<? while ($data->query->have_posts()): $data->query->the_post(); ?>
+
+			<li class="g-col">
+				<?= module('teaser')
+					->template($data->teaserTemplate)
+					->skin($data->teaserSkin)
+					->ctrl(); ?>
+			</li>
+
+		<? endwhile; ?>
+	</ul>
+<?
+else :
+	module('teaser')->template('empty')->skin('empty');
+endif;
+
+?>

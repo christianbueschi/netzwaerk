@@ -1,0 +1,174 @@
+### Redirects
+	# none
+
+### Browser Compatibility
+	# Force the latest IE version, in various cases when it may fall back to IE7 mode
+	# Use ChromeFrame if it's installed for a better experience for the poor IE folk
+	Header set X-UA-Compatible "IE=Edge,chrome=1"
+
+	# mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+	<FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+		Header unset X-UA-Compatible
+	</FilesMatch>
+
+### Proper MIME type for all files
+	# JavaScript
+	AddType application/javascript         js
+
+	# Images
+	AddType image/png                      apng
+
+	# Audio
+	AddType audio/ogg                      oga ogg
+	AddType audio/mp4                      m4a
+
+	# Video
+	AddType video/ogg                      ogv
+	AddType video/mp4                      mp4 m4v
+	AddType video/webm                     webm
+
+	# SVG (Required for svg webfonts on iPad)
+	AddType     image/svg+xml              svg svgz
+	AddEncoding gzip                       svgz
+
+	# Webfonts
+	AddType application/vnd.ms-fontobject  eot
+	AddType application/x-font-ttf         ttf ttc
+	AddType font/opentype                  otf
+	AddType application/x-font-woff        woff
+
+	# Assorted types
+	AddType image/x-icon                   ico
+	AddType image/webp                     webp
+	AddType text/cache-manifest            appcache manifest
+	AddType text/x-component               htc
+	AddType application/x-chrome-extension crx
+	AddType application/x-xpinstall        xpi
+	AddType application/octet-stream       safariextz
+	AddType text/x-vcard                   vcf
+
+### UTF8 Encoding
+	# Use UTF-8 encoding for anything served text/plain or text/html
+	AddDefaultCharset utf-8
+
+	# Force UTF-8 for a number of file formats
+	AddCharset utf-8 .css .js .xml .json .rss .atom
+
+### Gzip compression
+	# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+	SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+	RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+
+	# HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+	<IfModule filter_module>
+		FilterDeclare   COMPRESS
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+
+		# Fonts
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-woff
+
+		FilterChain     COMPRESS
+		FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+	</IfModule>
+
+### Expires headers (for better cache control)
+	ExpiresActive on
+
+	## None Far Future Headers
+
+	# Your document html
+	ExpiresByType text/html                 "access plus 0 minutes"
+
+	# Data
+	ExpiresByType text/xml                  "access plus 5 seconds"
+	ExpiresByType application/xml           "access plus 5 seconds"
+	ExpiresByType application/json          "access plus 5 seconds"
+
+	# Feed
+	ExpiresByType application/rss+xml       "access plus 1 hour"
+	ExpiresByType application/atom+xml      "access plus 1 hour"
+
+	## Far Future Headers
+
+	## Expires now for development
+	ExpiresDefault now
+
+	## None Far Future Headers
+
+	# Your document html
+	#ExpiresByType text/html                 "access plus 0 seconds"
+
+	# Data
+	#ExpiresByType text/xml                  "access plus 5 seconds"
+	#ExpiresByType application/xml           "access plus 5 seconds"
+	#ExpiresByType application/json          "access plus 5 seconds"
+
+	# Feed
+	#ExpiresByType application/rss+xml       "access plus 1 hour"
+	#ExpiresByType application/atom+xml      "access plus 1 hour"
+
+	## Far Future Headers
+
+	# Media: images, video, audio, fonts …
+	#ExpiresByType image/x-icon              "access plus 1 year"
+	#ExpiresByType image/gif                 "access plus 1 year"
+	#ExpiresByType image/png                 "access plus 1 year"
+	#ExpiresByType image/jpg                 "access plus 1 year"
+	#ExpiresByType image/jpeg                "access plus 1 year"
+	#ExpiresByType video/ogg                 "access plus 1 year"
+	#ExpiresByType audio/ogg                 "access plus 1 year"
+	#ExpiresByType video/mp4                 "access plus 1 year"
+	#ExpiresByType video/webm                "access plus 1 year"
+	#ExpiresByType font/truetype             "access plus 1 year"
+	#ExpiresByType font/opentype             "access plus 1 year"
+	#ExpiresByType application/x-font-woff   "access plus 1 year"
+	#ExpiresByType image/svg+xml             "access plus 1 year"
+	#ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+
+	# CSS and JavaScript,
+	#ExpiresByType text/css                  "access plus 1 year"
+	#ExpiresByType application/javascript    "access plus 1 year"
+
+
+### Cache Control
+	Header append Cache-Control "public"
+
+### ETag removal http://developer.yahoo.com/performance/rules.html#etags
+	Header unset ETag
+	FileETag None
+
+### Security
+	Options -Indexes
+
+### WordPress
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.php$ - [L]
+
+	# uploaded files
+	RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-includes/ms-files.php?file=$2 [L]
+
+	# add a trailing slash to /wp-admin
+	RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -d [OR]
+	RewriteCond %{REQUEST_FILENAME} -l
+	RewriteRule ^ - [L]
+	RewriteRule  ^[_0-9a-zA-Z-]+/(wp-(content|admin|includes).*) $1 [L]
+	RewriteRule  ^[_0-9a-zA-Z-]+/(.*\.php)$ $1 [L]
+	RewriteRule . index.php [L]

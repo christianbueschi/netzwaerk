@@ -1,0 +1,39 @@
+/**
+ * module: commentform
+ * creator: dmodalek
+ */
+.mod-commentform {
+	&:extend(.page-centered all);
+	&:extend(.section all);
+
+	.commentform-title {
+		&:extend(.title-sub all);
+	}
+
+	.g-layout-form {
+		@media @m-medium-up {
+			.grid-col-set('col', 7, 3);
+		}
+	}
+
+	.form-wrapper {
+		position: relative;
+		padding-top: @spc*1.5;
+	}
+
+	.form-submit {
+		text-align: right;
+		margin-top: @spc*1.5;
+		margin-bottom: @spc*2;
+
+		.submit {
+			cursor: pointer;
+			display: inline-block;
+		}
+	}
+
+	.comment-reply-title {
+		display: none;
+	}
+}
+/* END module: commentform */

@@ -1,0 +1,21 @@
+<div class="inner">
+	<h2 class="commentlist-title">
+	<? printf(_n('%1$s comment', '%1$s comments', get_comments_number(), 'nxtheme'), number_format_i18n(get_comments_number()));
+	?>
+	</h2>
+
+	<ul class="comments g-row g-layout-comments">
+		<?
+			// Use the following syntax instead of passing args using an array() in order to keep all the other
+			// comment settings that are set in the WordPress admin i.e. comment order
+			wp_list_comments('type=comment&callback=\NxTheme\Helpers::nx_comment_callback', $data->comments) ?>
+	</ul>
+
+	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ): ?>
+	<nav id="comment-nav-below" class="comment-navigation" role="navigation">
+		<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'nxtheme' ); ?></h1>
+		<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'nxtheme' ) ); ?></div>
+		<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'nxtheme' ) ); ?></div>
+	</nav>
+	<?php endif; ?>
+</div>

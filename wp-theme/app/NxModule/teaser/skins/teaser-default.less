@@ -1,0 +1,30 @@
+/**
+ * module: teaser
+ * skin: default
+ * creator: dmodalek
+ */
+.skin-teaser-default {
+	&:extend(.section all);
+
+	.teaser-image {
+		&:extend(.h-flex all);
+	}
+
+	.teaser-link {
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.teaser-title {
+		&:extend(.title-default all);
+
+		margin: @spc 0 @spc;
+	}
+
+	.meta {
+		margin-bottom: @spc;
+	}
+}
+/* END module: teaser */

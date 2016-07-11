@@ -1,0 +1,180 @@
+////////////////////////////////////////////////////////////////////////////////
+// RESPONSIVE TYPOGRAPHY
+
+#type {
+
+	// set default variables, overwrite in sub bundles if needed
+	@font-family    	: @font-default;
+	@font-size      	: @font-size-default;
+	@line-height    	: @line-height-default;
+	@font-weight : normal;
+	@font-weight-bold	: bold;
+	@font-weight-medium	: 600;
+
+	// optimised text rendering
+	.rendering(@_) {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	////////////////////////////////////////////////////////////
+
+	#title {
+
+		// Set title font family
+		@font-family: @font-default;
+
+		.style('default') {
+			font-family: @font-family;
+			font-weight: @font-weight-bold;
+			margin: 0;
+		}
+
+		////////////////////////////////////////////////////////////
+
+		// h1
+		.size('page') {
+			font-size: 30px;
+			line-height: 36px;
+
+			@media @m-medium {
+				font-size: 36px;
+				line-height: 53px;
+			}
+
+			@media @m-large-up {
+				font-size: 53px;
+				line-height: 64px;
+			}
+		}
+
+		.spacing('page') {
+			margin-top: 4rem;
+			margin-bottom: 5rem;
+		}
+
+		////////////////////////////////////////////////////////////
+
+		// h2
+		.size('default') {
+			font-size: 24px;
+			line-height: 36px;
+
+			@media @m-medium {
+				font-size: 30px;
+				line-height: 36px;
+			}
+
+			@media @m-large-up {
+				font-size: 36px;
+				line-height: 53px;
+			}
+		}
+
+		.spacing('default') {
+			margin-top: 3rem;
+			margin-bottom: 4rem;
+		}
+
+		////////////////////////////////////////////////////////////
+
+		// h3
+		.size('sub') {
+			font-size: 20px;
+			line-height: 30px;
+
+			@media @m-medium-up {
+				font-size: 24px;
+				line-height: 36px;
+			}
+		}
+
+		.spacing('sub') {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	#copy {
+		.style('default') {
+			font-family: @font-family;
+			font-weight: @font-weight;
+		}
+
+
+		.size('default') {
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: @font-weight;
+			
+			@media @m-medium-up {
+				font-size: @font-size;
+				line-height: @line-height;
+			}
+		}
+
+		.size('small') {
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////
+
+	#link {
+		@color: @color-link;
+
+		// applies to all mixin calls below
+		.style(@_) {
+			&:link,
+			&:hover,
+			&:active,
+			&:visited,
+			&:focus {
+				text-decoration: none;
+				color: @color;
+			}
+		}
+
+		.style('default') {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.style('hover') {
+			&:hover {
+				border-color: @color-border;
+			}
+		}
+	}
+
+////////////////////////////////////////////////////////////
+
+	#icon {
+
+		.size('default') {
+			font-size: 20px;
+			line-height: 20px;
+
+			@media @m-medium-up {
+				font-size: 22px;
+				line-height: 24px;
+			}
+		}
+
+		.size('big') {
+			font-size: 20px;
+			line-height: 20px;
+
+			@media @m-medium-up {
+				font-size: 30px;
+				line-height: 30px;
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////
+// FORMS
+
+ // Remove Round Borders on IOS
+ // - must be here, outside of a .class
+input {
+	border-radius: 0 !important;
+}
+
+////////////////////////////////////////////////////////////
+
+.form {
+	.form-line {
+		margin-bottom: @spc;
+	}
+
+	label {
+		display: inline-block;
+
+		@media @m-medium-up {
+			.g-col();
+			position: absolute;
+			left: 0;
+			width: auto;
+		}
+
+		&[for] {
+			cursor: pointer;
+		}
+
+		&.required {
+			&:after {
+				content: '*';
+			}
+		}
+	}
+
+	input,
+	textarea {
+		display: block;
+		width: 100%;
+		border: 1px solid @color-copy;
+		background: white;
+		-webkit-appearance: none;
+
+		&:hover {
+			border-color: @color-copy;
+		}
+
+		&:focus {
+			border-color: black;
+		}
+	}
+
+	input {
+		height: 32px;
+		padding: 0 @spc/2;
+	}
+
+	textarea {
+		padding: @spc/2;
+		max-width: 100%;
+	}
+
+	input[type=submit] {
+		cursor: pointer;
+		width: auto;
+		color: @color-copy;
+		padding-left: @spc;
+		padding-right: @spc;
+		background-color: @color-bg-body;
+
+		&:hover {
+			background-color: @color-hover;
+		}
+	}
+}

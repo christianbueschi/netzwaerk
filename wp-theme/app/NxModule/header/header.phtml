@@ -1,0 +1,21 @@
+<div class="mod-header__head g-layout-header g-row">
+	<figure class="mod-header__logo g-col g-col-logo">
+		<img src="<?= $data->stage_logo_url ?>">
+	</figure>
+
+	<button class="mod-header__menu-button js-menu-button" type="button" role="button" aria-label="Toggle Navigation">
+  		<span class="mod-header__menu-button-lines js-lines"></span>
+	</button>
+
+	<div class="mod-header__menu g-col g-col-menu js-menu">
+		<?
+		if($data->menu_main !== false):
+			foreach ($data->menu_main['items'] as $item) :
+				if(in_array('current', $item->classes) === false): 	?>
+					<a href="<?= $item->url ?>" class="mod-header__menu-item"><?= $item->post_title ?></a>
+				<? 	endif;
+			endforeach;
+		endif;
+		?>
+	</div>	
+</div>

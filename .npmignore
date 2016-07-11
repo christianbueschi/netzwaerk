@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+
+# Local Config, Credentials, Env Data
+/shared
+/web/.htaccess
+/web/wp-config.php
+
+# Symlinks
+/web/wp-content/themes/temp
+
+# WordPress
+/web/license.txt
+/web/readme.html
+/web/wp-config-sample.php
+/web/wp-content/uploads
+/web/wp-content/blogs.dir
+/web/wp-content/gallery
+/web/wp-content/authors
+/web/wp-content/cache
+/web/wp-content/debug.log
+
+# Default Plugins we don't need
+/web/wp-content/plugins/hello.php
+
+# Temp Data, Cache, Logs etc.
+/resources/db-export-loc.sql
+/npm-debug.log
+
+# Languages (i.e. Loco Translate Plugin)
+wp-theme/languages/

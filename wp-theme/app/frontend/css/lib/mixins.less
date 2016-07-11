@@ -1,0 +1,39 @@
+////////////////////////////////////////////////////////////////////////////////
+// HELPER MIXINS
+
+// Placeholder, a little bit messy, because selectors cannot be chained
+.m-placeholder-color(@color: inherit, @transparency: 100%) {
+	@c-target: fade(@color, @transparency);
+
+	::-webkit-input-placeholder {
+		// WebKit browsers
+		color: @c-target;
+		opacity: 1;
+	}
+	:-moz-placeholder {
+		// Mozilla Firefox 4 to 18
+		color: @c-target;
+		opacity: 1;
+	}
+	::-moz-placeholder {
+		// Mozilla Firefox 19+
+		color: @c-target;
+		opacity: 1;
+	}
+	:-ms-input-placeholder {
+		// Internet Explorer 10+
+		color: @c-target;
+		opacity: 1;
+	}
+}
+
+// Extend a background horizontally to "infinity and beyond" without altering the elements content boundaries
+.m-bg-beyond(@width: 500%) {
+	margin-left: -@width;
+	margin-right: -@width;
+	padding-left: @width;
+	padding-right: @width;
+	// bg-beyond with clearfixed rows pushes content down. fix with...
+	// clear: both; // or
+	// overflow: hidden;
+}
