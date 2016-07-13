@@ -1130,10 +1130,10 @@ p.text {
   position: relative;
 }
 .mod-article__article.m-develop {
-  background-color: #ff505a;
+  background-color: #78f0cd;
 }
 .mod-article__article.m-network {
-  background-color: #78f0cd;
+  background-color: #ff505a;
 }
 .mod-article__article.m-integrate {
   background-color: #76d2ff;
@@ -1160,13 +1160,13 @@ p.text {
   }
 }
 .m-develop .mod-article__title {
-  color: #b6000a;
+  color: #15ba8a;
 }
 .m-develop .mod-article__title em {
   color: white;
 }
 .m-network .mod-article__title {
-  color: #15ba8a;
+  color: #b6000a;
 }
 .m-network .mod-article__title em {
   color: white;
@@ -1409,12 +1409,12 @@ p.text {
 .mod-cta__title .m-develop {
   font-style: normal;
   text-transform: capitalize;
-  color: #ff505a;
+  color: #78f0cd;
 }
 .mod-cta__title .m-network {
   font-style: normal;
   text-transform: capitalize;
-  color: #78f0cd;
+  color: #ff505a;
 }
 .mod-cta__title .m-integrate {
   font-style: normal;
