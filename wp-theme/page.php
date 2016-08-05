@@ -8,7 +8,6 @@
 get_header();
 ?>
 
-<div class="stage-full-heighth">
 	<?= module('stage')
 			->tag('section')
 			->ctrl() 
@@ -18,7 +17,11 @@ get_header();
 			->tag('section')
 			->ctrl() 
 	?>
-</div>
+
+	<?= module('intro')
+			->tag('section')
+			->ctrl() 
+	?>
 
 	<?= module('article')
 			->tag('section')

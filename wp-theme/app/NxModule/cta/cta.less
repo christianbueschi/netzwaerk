@@ -5,16 +5,15 @@
 .mod-cta {
 
 	&:extend(.box-centered);
-	&:extend(.box-content-page);
+	padding: 0 200px;
 
 	.g-layout-cta {
 		@media @m-large-up {
-			.grid-col-set-equal(@grid-cols/3);
+			.grid-col-set-equal(@grid-cols/2);
 		}
 	}
 
 	&__list {
-
 		margin-top: @spc;
 
 		@media @m-large-up {
@@ -34,7 +33,9 @@
 	&__title {
 		margin: 0;
 		line-height: 40px;
-		text-transform: uppercase;
+
+		border: 2px solid black;
+    	text-align: center;
 
 		@media @m-medium-up {
 			line-height: 60px;
@@ -50,20 +51,17 @@
 
 		.m-develop {
 			font-style: normal;
-			text-transform: capitalize;
-			color: @color-cyan;
+			color: @color-blue;
 		}
 
 		.m-network {
 			font-style: normal;
-			text-transform: capitalize;
-			color: @color-red;
+			color: @color-cyan;
 		}
 
 		.m-integrate {
 			font-style: normal;
-			text-transform: capitalize;
-			color: @color-blue;
+			color: @color-red;
 		}
 	}
 
@@ -72,7 +70,7 @@
 
 		&:hover {
 			.m-develop {
-				color: darken(@color-red, 30%);
+				color: darken(@color-blue, 30%);
 			}
 
 			.m-network {
@@ -80,7 +78,7 @@
 			}
 
 			.m-integrate {
-				color: darken(@color-blue, 30%);
+				color: darken(@color-red, 30%);
 			}
 
 			.a-icon {
