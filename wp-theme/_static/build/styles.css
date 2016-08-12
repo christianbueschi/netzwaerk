@@ -1119,9 +1119,9 @@ p.text {
 }
 @media (min-width: 33.0625em) {
   .mod-article .g-layout-gallery > .g-col {
-    width: 33.33334%;
+    width: 50%;
   }
-  .mod-article .g-layout-gallery > .g-col:nth-of-type( 3n + 1) {
+  .mod-article .g-layout-gallery > .g-col:nth-of-type( 2n + 1) {
     clear: left;
   }
 }

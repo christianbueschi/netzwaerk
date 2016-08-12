@@ -24,7 +24,7 @@ if( have_rows('content_items') ): ?>
                                 <?php foreach( $images as $image ):  ?>
                                     <li class="mod-article__gallery-item g-col">
                                         <a class="mod-article__gallery-link js-lightbox" rel="<? the_sub_field('content_item_modifier'); ?>" href="<?= $image['url']; ?>">
-                                            <img class="mod-article__gallery-image" src="<?= $image['sizes']['medium']; ?>" alt="<?= $image['alt']; ?>" />
+                                            <img class="mod-article__gallery-image" src="<?= $image['sizes']['large']; ?>" alt="<?= $image['alt']; ?>" />
                                         </a>
                                     </li>
                                     <?php endforeach; ?>
