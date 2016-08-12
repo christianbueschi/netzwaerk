@@ -5,7 +5,12 @@
 .mod-cta {
 
 	&:extend(.box-centered);
-	padding: 0 200px;
+
+
+	padding: 0 @spc;
+	@media @m-large-up {
+		padding: 0 200px;
+	}
 
 	.g-layout-cta {
 		@media @m-large-up {
