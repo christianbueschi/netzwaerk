@@ -1109,6 +1109,10 @@ p.text {
 .mod-article img {
   height: auto;
 }
+.mod-article ul {
+  list-style: initial;
+  margin-left: 20px;
+}
 @media (max-width: 33em) {
   .mod-article .g-layout-gallery > .g-col {
     width: 50%;
