@@ -20,7 +20,9 @@
 		<title><?php wp_title('|', true, 'right'); ?></title>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-		<link rel="shortcut icon" type="image/x-icon" href="<?=ASSETS_URL?>/img/favicon.ico"/>
+		<link rel="shortcut icon" type="image/png" sizes="32x32" href="<?=ASSETS_URL?>/img/favicon-32x32.png"/>
+		<link rel="shortcut icon" type="image/png" sizes="96x96" href="<?=ASSETS_URL?>/img/favicon-96x96.png"/>
+		<link rel="shortcut icon" type="image/png" sizes="16x16" href="<?=ASSETS_URL?>/img/favicon-16x16.png"/>
 		<link rel="apple-touch-icon" href="<?=ASSETS_URL?>/img/apple-touch-icon.png"/>
 
 		<?php wp_head(); ?>

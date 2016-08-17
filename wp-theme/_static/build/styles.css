@@ -1384,6 +1384,11 @@ p.text {
 }
 @media (min-width: 48.0625em) {
   .mod-cta {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 64.0625em) {
+  .mod-cta {
     padding: 0 200px;
   }
 }
@@ -1503,7 +1508,7 @@ p.text {
     width: 16.66667%;
   }
   .mod-header .g-layout-header > .g-col-menu {
-    width: 50%;
+    width: 83.33334%;
   }
 }
 .mod-header a:hover {
@@ -1629,6 +1634,9 @@ p.text {
  * module: content
  * creator: cbueschi
  */
+.mod-intro {
+  font-weight: 600;
+}
 @media (min-width: 33.0625em) {
   .mod-intro {
     margin: 100px 0;
