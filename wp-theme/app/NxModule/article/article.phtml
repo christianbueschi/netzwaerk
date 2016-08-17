@@ -33,7 +33,10 @@ if( have_rows('content_items') ): ?>
 
                         </div>
                     </div>
-                    <img class="mod-article__background" src="<? the_sub_field('content_item_background_image'); ?>">
+                    <? $background = the_sub_field('content_item_background_image'); ?>
+                    <? if ($background) : ?>
+                        <img class="mod-article__background" src="<? the_sub_field('content_item_background_image'); ?>">
+                    <? endif; ?>
                 </div>
             </article>
 
