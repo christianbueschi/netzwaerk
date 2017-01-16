@@ -44,16 +44,25 @@
 				}
 			});
 
-			// Scroll To Anchor
-			$('a[href*=#]').on('click', function(event){     
-    			event.preventDefault();
-    			var href = $.attr(this, 'href');
-    			$('html,body').animate({
-    				scrollTop:$(this.hash).offset().top
-    			}, 500, function() {
-    				window.location.hash = href;
-    			});
-			});
+			var is_root = location.pathname == "/";
+
+
+				// Scroll To Anchor
+				$('a[href*=#]').on('click', function(event){
+					if (is_root) {
+						event.preventDefault();
+						var href = $.attr(this, 'href');
+						$('html,body').animate({
+							scrollTop:$(this.hash).offset().top
+						}, 500, function() {
+							window.location.hash = href;
+						});
+						} else {
+							event.preventDefault();
+							var anchor = $(event.currentTarget).attr('href');
+							window.location = '/'+anchor;
+						}
+				});
 		},
 
 		/**

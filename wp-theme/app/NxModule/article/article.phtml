@@ -31,6 +31,13 @@ if( have_rows('content_items') ): ?>
                                 </ul>
                             <?php endif; ?>
 
+                            <? if(get_sub_field('content_item_action_link')): ?>
+                                <div class="mod-article__footer">
+                                    <br>
+                                    <? the_sub_field('content_item_action_link'); ?>
+                                </div>
+                            <? endif; ?>
+
                         </div>
                     </div>
                     <? $background = the_sub_field('content_item_background_image'); ?>
